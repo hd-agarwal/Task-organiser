@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">ToDo</string>
+    <string name="add_task">Add task</string>
+    <string name="history">History</string>
+    <string name="search">Search</string>
+    <string name="save_task">Save Task</string>
+    <string name="title">Title</string>
+    <string name="enter_task_title">Enter task title</string>
+    <string name="description">Description</string>
+    <string name="enter_task_description">Enter task description</string>
+    <string name="date">Date</string>
+    <string name="set_date">Set date</string>
+    <string name="time">Time</string>
+    <string name="set_time">Set time</string>
+    <string name="category">Category</string>
+    <string name="add_arbitrary_category">Add arbitrary category</string>
+</resources>
