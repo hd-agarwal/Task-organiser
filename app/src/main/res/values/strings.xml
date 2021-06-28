@@ -14,4 +14,6 @@
     <string name="set_time">Set time</string>
     <string name="category">Category</string>
     <string name="add_arbitrary_category">Add arbitrary category</string>
+    <string name="dateTag">Date:</string>
+    <string name="timeTag">Time:</string>
 </resources>

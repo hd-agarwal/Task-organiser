@@ -6,7 +6,7 @@ import java.sql.Time
 
 @Entity
 data class Todo(
-    var task: String,
+    var title: String,
     var description: String,
     var date: Long,
     var time: Long,
