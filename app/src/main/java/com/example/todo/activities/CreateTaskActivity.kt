@@ -14,6 +14,7 @@ import android.widget.*
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
+import com.example.todo.DateAndTime
 import com.example.todo.R
 import com.example.todo.databaseHelpers.AppDatabase
 import com.example.todo.models.Todo
@@ -171,9 +172,7 @@ class CreateTaskActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun updateTime() {
-        val myFormat = "h:mm a"
-        val sdf = SimpleDateFormat(myFormat)
-        textInputEditTextTime.setText(sdf.format(myCalendar.time))
+        textInputEditTextTime.setText(DateAndTime.getTimeString(myCalendar.time))
     }
 
     private fun setDateListener() {
@@ -199,7 +198,7 @@ class CreateTaskActivity : AppCompatActivity(), View.OnClickListener {
     private fun updateDate() {
         val myFormat = "EEE, d MMM yyyy"
         val sdf = SimpleDateFormat(myFormat)
-        textInputEditTextDate.setText(sdf.format(myCalendar.time))
+        textInputEditTextDate.setText(DateAndTime.getDateString(myCalendar.time))
         tvTimeTag.apply { setTextColor(Color.parseColor("#1693FF")) }
         textInputLayoutTime.apply { isEnabled = true }
     }

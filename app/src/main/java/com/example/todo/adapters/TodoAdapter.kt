@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.todo.DateAndTime
 import com.example.todo.R
 import com.example.todo.models.Todo
 import kotlinx.android.synthetic.main.layout_todo.view.*
-import java.text.SimpleDateFormat
 import java.util.*
 
 class TodoAdapter(private val todoList: List<Todo>) :
@@ -21,23 +21,10 @@ class TodoAdapter(private val todoList: List<Todo>) :
                 val randomColor = colors[Random().nextInt(colors.size)]
                 viewColorTag.apply { setBackgroundColor(randomColor) }
                 tvCategory.apply { text = todo.category }
-                updateTime(todo.time)
-                updateDate(todo.date)
+                tvDate.apply { text = DateAndTime.getDateString(todo.date) }
+                tvTime.apply { text = DateAndTime.getTimeString(todo.time) }
             }
         }
-
-        private fun updateDate(date: Long) {
-            val myFormat = "EEE, d MMM yyyy"
-            val sdf = SimpleDateFormat(myFormat)
-            itemView.tvDate.apply { text = sdf.format(date) }
-        }
-
-        private fun updateTime(time: Long) {
-            val myFormat = "h:mm a"
-            val sdf = SimpleDateFormat(myFormat)
-            itemView.tvDate.apply { text = sdf.format(time) }
-        }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =

@@ -17,17 +17,26 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initUI() {
-        floatingActionButton.apply{setOnClickListener{startActivity(Intent(applicationContext,CreateTaskActivity::class.java))}}
+        floatingActionButton.apply {
+            setOnClickListener {
+                startActivity(
+                    Intent(
+                        applicationContext,
+                        CreateTaskActivity::class.java
+                    )
+                )
+            }
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu,menu)
+        menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            R.id.history->startActivity(Intent(applicationContext,HistoryActivity::class.java))
+        when (item.itemId) {
+            R.id.history -> startActivity(Intent(applicationContext, HistoryActivity::class.java))
         }
         return super.onOptionsItemSelected(item)
     }
