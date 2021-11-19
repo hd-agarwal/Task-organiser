@@ -1,13 +1,12 @@
 package com.example.todo.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.room.Room
 import com.example.todo.R
 import com.example.todo.adapters.TodoAdapter
 import com.example.todo.databaseHelpers.AppDatabase
@@ -18,11 +17,7 @@ class MainActivity : AppCompatActivity() {
     private val listTodos = arrayListOf<Todo>()
     private val todoAdapter = TodoAdapter(listTodos)
     private val db by lazy {
-        Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            DB_NAME
-        ).fallbackToDestructiveMigration().build()
+        AppDatabase.getDatabase(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

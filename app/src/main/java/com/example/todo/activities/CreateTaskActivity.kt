@@ -13,7 +13,6 @@ import android.view.View
 import android.widget.*
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
 import com.example.todo.DateAndTime
 import com.example.todo.R
 import com.example.todo.databaseHelpers.AppDatabase
@@ -38,11 +37,7 @@ class CreateTaskActivity : AppCompatActivity(), View.OnClickListener {
     private val listCategories =
         arrayListOf("Business", "Personal", "Insurance", "Shopping", "Appointment")
     private val db by lazy {
-        Room.databaseBuilder(
-            this,
-            AppDatabase::class.java,
-            DB_NAME
-        ).fallbackToDestructiveMigration().build()
+        AppDatabase.getDatabase(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
