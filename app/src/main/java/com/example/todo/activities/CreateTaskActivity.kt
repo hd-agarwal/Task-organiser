@@ -101,11 +101,11 @@ class CreateTaskActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun insertToDB(todo: Todo) {
-        GlobalScope.launch(Dispatchers.Main){
-            withContext(Dispatchers.IO){
+        GlobalScope.launch(Dispatchers.Main) {
+            withContext(Dispatchers.IO) {
                 return@withContext db.todoDao().insertTodo(todo)
             }
-            Toast.makeText(this@CreateTaskActivity,"Task added",Toast.LENGTH_SHORT).show()
+            Toast.makeText(this@CreateTaskActivity, "Task added", Toast.LENGTH_SHORT).show()
             finish()
         }
     }
